@@ -82,4 +82,82 @@ function update() {
 }
 
 
+//Pacman movement & Animation
+
+let pacMan = document.getElementById('pac1');
+let pacMan2 = document.getElementById('pac2');
+let pacMan3 = document.getElementById('pac3');
+
+let images = new Array();
+images = ['./assets/images/pacman2/pacman-0.png',
+        './assets/images/pacman2/pacman-1.png',
+        './assets/images/pacman2/pacman-2.png'];
+
+        
+        let x = 0;
+
+        setInterval(function animation(){
+            pacMan.src = images[x];
+            x++;
+            if(images.length === x){
+                x = 0;
+            }
+        }, 60)
+
+
+pacMan = null;
+
+let animate;
+
+function init(){
+    pacMan = document.getElementById('pac1');
+    pacMan.style.position = 'relative';
+    pacMan.style.left = '0px';
+    pacMan.style.top = '0px';
+}
+
+
+function moveRight(){
+    pacMan.style.transform = 'rotate(0deg)';
+    pacMan.style.left = parseInt(pacMan.style.left) + 3 + 'px';
+    animate = setTimeout(moveRight, 20);
+}
+
+function moveLeft(){
+    pacMan.style.transform = 'rotate(180deg)';
+    pacMan.style.left = parseInt(pacMan.style.left) - 3 + 'px';
+    animate = setTimeout(moveLeft, 20);
+}
+function moveDown(){
+    pacMan.style.transform = 'rotate(90deg)';
+    pacMan.style.top = parseInt(pacMan.style.top) + 3 + 'px';
+   animate = setTimeout(moveDown, 20);
+}
+function moveUp(){
+    pacMan.style.transform = 'rotate(-90deg)';
+    pacMan.style.top = parseInt(pacMan.style.top) - 3 + 'px'
+    animate = setTimeout(moveUp, 20);
+}
+
+function stop(){
+    clearTimeout(animate)
+}
+
+document.addEventListener('keyup', (e) => {
+    if(e.key === 'ArrowRight'){
+        stop(animate)
+        return moveRight()
+    } else if (e.key === 'ArrowLeft'){
+        stop(animate)
+        return moveLeft()
+    } else if(e.key === 'ArrowDown'){
+        stop(animate)
+        return moveDown()
+    } else if(e.key === 'ArrowUp') {
+        stop(animate)
+        return moveUp()
+    }
+})
+
+window.onload = init;
 
