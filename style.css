@@ -1,5 +1,41 @@
 body {
     margin: 0;
+    background: purple;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#top {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+}
+
+#scoreboard {
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    margin-left: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score {
+    color: white;
+}
+
+#pacmanlogo {
+    width: 300px;
+    align-self: center;
+    justify-self: center;
+    margin-left: 360px;
 }
 
 #game {
@@ -61,6 +97,7 @@ body {
     width: 32px;
     height: 32px;
 }
+
 
 
 .entity {

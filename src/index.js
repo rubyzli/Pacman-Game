@@ -1,4 +1,5 @@
 const canvas = document.querySelector('#game');
+const scoreboard = document.querySelector('#scoreboard');
 
 let bgImg = [
     '../assets/images/ghosts/ghost-blinky-down.png',
@@ -74,13 +75,15 @@ function createBoard () {
 
 createBoard();
 
-function gameLoop () {
+let score = 0;
+
+function calculateScore(){
 
 }
 
+function gameLoop () {
 
-
-
+}
 
 function update() {
     setInterval(gameLoop, 1000/60);
