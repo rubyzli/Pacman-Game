@@ -242,4 +242,4 @@ listing all previous games' __scores__ and their __names__.
     - [`setInterval`](https://developer.mozilla.org/en-US/docs/Web/API/window/setInterval)
     - [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-[AABB]: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+[AABB]: https://dev££eloper.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
