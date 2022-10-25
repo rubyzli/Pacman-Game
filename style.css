@@ -4,8 +4,8 @@ body {
 
 #game {
     position: relative;
-    width: 800px;
-    height: 800px;
+    width: 608px;
+    height: 672px;
     margin: auto;
     background-color: gray;
     display: grid;
