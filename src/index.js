@@ -69,7 +69,7 @@ function createBoard () {
             squares[i].classList.add('clydeghost');
          } else if(layout[i] === 0){
             squares[i].classList.add('pacman');
-         }
+         } 
     }
 }
 
@@ -92,14 +92,13 @@ function update() {
 
 //Pacman movement & Animation
 
-let pacMan = document.getElementById('pac1');
-let pacMan2 = document.getElementById('pac2');
-let pacMan3 = document.getElementById('pac3');
+let pacMan = document.querySelector('.pacman');
+
 
 let images = new Array();
-images = ['./assets/images/pacman2/pacman-0.png',
-        './assets/images/pacman2/pacman-1.png',
-        './assets/images/pacman2/pacman-2.png'];
+images = ['./assets/images/pacman_32px/pacman-0.png',
+        './assets/images/pacman_32px/pacman-1.png',
+        './assets/images/pacman_32px/pacman-3.png'];
 
         
         let x = 0;
@@ -110,15 +109,13 @@ images = ['./assets/images/pacman2/pacman-0.png',
             if(images.length === x){
                 x = 0;
             }
-        }, 60)
-
-
-pacMan = null;
+            
+        }, 100);
 
 let animate;
 
 function init(){
-    pacMan = document.getElementById('pac1');
+    pacMan = document.querySelector('.pacman');
     pacMan.style.position = 'relative';
     pacMan.style.left = '0px';
     pacMan.style.top = '0px';
