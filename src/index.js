@@ -49,7 +49,9 @@ function createBoard () {
             squares[i].classList.add('inkyghost');
          } else if(layout[i] === 7){
             squares[i].classList.add('clydeghost');
-         } 
+         } else if(layout[i] === 0){
+            squares[i].classList.add('pacman');
+         }
     }
 }
 
@@ -57,21 +59,15 @@ createBoard();
 
 let score = 0;
 
-//draw pacman
-let pacmanCurrentIndex = 490
-squares[pacmanCurrentIndex].classList.add('pacman');
-
-console.log(getCoordinates(pacmanCurrentIndex));
-
 //eating pellets score
-function pelletEaten(){
-    if(squares[pacmanCurrentIndex].classList.contains('pellet')){
-        eat.play();
-        score++;
-        scoreboard.innerHTML = score;
-        squares[pacmanCurrentIndex].classList.remove('pellet');
-    }
-}
+// function pelletEaten(){
+//     if(squares[pacmanCurrentIndex].classList.contains('pellet')){
+//         eat.play();
+//         score++;
+//         scoreboard.innerHTML = score;
+//         squares[pacmanCurrentIndex].classList.remove('pellet');
+//     }
+// }
 
 function gameLoop () {
 
@@ -88,10 +84,10 @@ let pacMan = document.getElementById('pac1');
 let pacMan2 = document.getElementById('pac2');
 let pacMan3 = document.getElementById('pac3');
 
-let images = new Array();
-images = ['./assets/images/pacman2/pacman-0.png',
-        './assets/images/pacman2/pacman-1.png',
-        './assets/images/pacman2/pacman-2.png'];
+let images = [];
+images = ['../assets/images/pacman_32px/pacman-0.png',
+        '../assets/images/pacman_32px/pacman-1.png',
+        '../assets/images/pacman_32px/pacman-3.png'];
 
         
         let x = 0;
@@ -110,10 +106,10 @@ pacMan = null;
 let animate;
 
 function init(){
-    pacMan = document.getElementById('pac1');
-    pacMan.style.position = 'relative';
-    pacMan.style.left = '0px';
-    pacMan.style.top = '0px';
+    pacMan = document.querySelector('.pacman');
+    //pacMan.style.position = 'relative';
+    //pacMan.style.left = '0px';
+    //pacMan.style.top = '0px';
 }
 
 
