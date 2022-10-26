@@ -55,11 +55,11 @@ main {
     height: 32px;
 }
 
-.pacman {
+/*.pacman {
     background: url(./assets/images/pacman_32px/pacman-1.png);
     width: 32px;
     height: 32px;    
-}
+}*/
 
 .pellet {
     background: url(./assets/images/pellet/pellet_32px.png);
