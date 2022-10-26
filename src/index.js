@@ -92,7 +92,7 @@ function update() {
 
 //Pacman movement & Animation
 
-let pacMan = document.querySelector('.pacman');
+let pacMan = document.getElementById('pac1');
 
 
 let images = new Array();
@@ -111,14 +111,15 @@ images = ['./assets/images/pacman_32px/pacman-0.png',
             }
             
         }, 100);
+pacMan = null;
 
 let animate;
 
 function init(){
-    pacMan = document.querySelector('.pacman');
+    pacMan = document.getElementById('pac1');
     pacMan.style.position = 'relative';
-    pacMan.style.left = '0px';
-    pacMan.style.top = '0px';
+    pacMan.style.left = '288px';
+    pacMan.style.top = '96px';
 }
 
 
