@@ -186,7 +186,7 @@ function moveRight(){
         nextElement.classList.remove('pellet');
         nextElement.classList.add('pacman');
         nextElement.appendChild(document.getElementById('pac1'));
-
+        
         pacmanPosition.empty();
 
         startPosition.j += 1;
