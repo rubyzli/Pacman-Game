@@ -3,25 +3,6 @@ const scoreboard = document.querySelector('#scoreboard');
 
 let width = 28;
 
-
-let bgImg = [
-    '../assets/images/ghosts/ghost-blinky-down.png',
-    '../assets/images/ghosts/ghost-blinky-left.png',
-    '../assets/images/ghosts/ghost-blinky-right.png',
-    '../assets/images/ghosts/ghost-blinky-up.png'
-]
-
-// setInterval('blinkyGhost()', 400);
-
-function blinkyGhost() {
-    let x = 0;
-    document.querySelector('.blinkyghost').src = bgImg[x];
-    x++;
-    if(bgImg.length === x){
-        x = 0;
-    }
-}
-
 const layout = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 3, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 1],
@@ -57,12 +38,14 @@ let classes = {
     5: 'pinkyghost',
     6: 'inkyghost',
     7: 'clydeghost',
-    8: 'pacman'
+    8: 'pacman',
+    9: 'empty'
 }
 let startPosition = {
     i: 0,
     j: 0
 }
+
 function createBoard () {
     for(let i = 0; i < layout.length; i++){
         for(let j =0; j < layout[i].length; j++){
@@ -86,9 +69,8 @@ function createBoard () {
                 squares[`${i}-${j}`].classList.add('pacman');
                 squares[`${i}-${j}`].appendChild(document.querySelector('#pac1'));
             }
-
+        }
     }
-}
 }
 
 
@@ -103,11 +85,6 @@ function calculateScore(){
 function gameLoop () {
 
 }
-
-function update() {
-    setInterval(gameLoop, 1000/60);
-}
-
 
 //Pacman movement & Animation
 
@@ -131,62 +108,49 @@ setInterval(function animation(){
     
 }, 100);
 
-//  function pacmanPosition(){
-//      let pacMan = document.querySelector('#pac1');
-//      let position = pacMan.getBoundingClientRect();
-//      return position;
-//  }
-// let pacPosition = new Object();
-//  pacPosition = pacmanPosition();
-
-//  function wallPosition(wall){
-//     let position = wall.getBoundingClientRect();
-//     return position   
-// }
-// let wallPositionn = new Object();
-// wallPositionn = wallPosition(wall);
-
-
-// function isColliding(position, wallp){
-//     if(
-//         position.x > wallp.x &&
-//         position.y < wallp.y 
-//     ) {
-//         console.log('true')
-//     } else {
-//         console.log('false');
-//     }
-// }
-// setInterval(isColliding(pacPosition, wallPositionn), 20);
-
 pacMan = null;
 
 let animate;
 
 function init(){
     pacMan = document.querySelector('#pac1');
-    /*pacMan.style.position = 'relative';
-    pacMan.style.left = '288px';
-    pacMan.style.top = '96px';*/
+   
 }
 
-function move(position, direction){
-    // if()
-}
+
 
 function moveRight(){
     pacMan.style.transform = 'rotate(0deg)';
-    // pacMan.style.left = parseInt(pacMan.style.left) + 3 + 'px';
-    // animate = setTimeout(moveRight, 20);
     let pacmanPosition = squares[`${startPosition.i}-${startPosition.j}`];
     let nextElement = squares[`${startPosition.i}-${startPosition.j+1}`];
-    console.log(nextElement.classList);
 
     if(nextElement.classList.value == 'pellet'){
         nextElement.classList.remove('pellet');
+        startPosition.j++;
+        animate = setTimeout(moveRight, 150);
         nextElement.classList.add('pacman');
         nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.j += 1;
+    } else if(nextElement.classList.value === 'pacman'){
+        nextElement.classList.remove('pacman');
+        startPosition.j++;
+        animate = setTimeout(moveRight, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+        pacmanPosition.empty();
+
+        startPosition.j += 1;
         
+    } else if(nextElement.classList.value == 'powerpellet'){
+        nextElement.classList.remove('powerpellet');
+        startPosition.j++;
+        animate = setTimeout(moveRight, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+
         pacmanPosition.empty();
 
         startPosition.j += 1;
@@ -196,20 +160,124 @@ function moveRight(){
 
 function moveLeft(){
     pacMan.style.transform = 'rotate(180deg)';
-    pacMan.style.left = parseInt(pacMan.style.left) - 3 + 'px';
-    animate = setTimeout(moveLeft, 20);
+    let pacmanPosition = squares[`${startPosition.i}-${startPosition.j}`];
+    let nextElement = squares[`${startPosition.i}-${startPosition.j-1}`];
+    
+
+    if(nextElement.classList.value == 'pellet'){
+        nextElement.classList.remove('pellet');
+        startPosition.j--
+        animate = setTimeout(moveLeft, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.j -= 1;
+    } else if(nextElement.classList.value === 'pacman'){
+        nextElement.classList.remove('pacman');
+        startPosition.j--;
+        animate = setTimeout(moveUp, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+        pacmanPosition.empty();
+
+        startPosition.j -= 1;
+        
+    } else if(nextElement.classList.value == 'powerpellet'){
+        nextElement.classList.remove('powerpellet');
+        startPosition.j--;
+        animate = setTimeout(moveLeft, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.j -= 1;
+    }
+  
 }
     
 function moveDown(){
     pacMan.style.transform = 'rotate(90deg)';
-    pacMan.style.top = parseInt(pacMan.style.top) + 3 + 'px';
-    animate = setTimeout(moveDown, 20);
+
+    let pacmanPosition = squares[`${startPosition.i}-${startPosition.j}`];
+    let nextElement = squares[`${startPosition.i+1}-${startPosition.j}`];
+    
+
+    if(nextElement.classList.value == 'pellet'){
+        nextElement.classList.remove('pellet');
+        nextElement.classList.add('pacman');
+        startPosition.i++
+        animate = setTimeout(moveDown, 150);
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.i += 1;
+    } else if(nextElement.classList.value === 'pacman'){
+        nextElement.classList.remove('pacman');
+        startPosition.i++;
+        animate = setTimeout(moveDown, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+        pacmanPosition.empty();
+
+        startPosition.i += 1;
+        
+    } else if(nextElement.classList.value == 'powerpellet'){
+        nextElement.classList.remove('powerpellet');
+        startPosition.i++;
+        animate = setTimeout(moveDown, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.i += 1;
+    }
+
 }
     
 function moveUp(){
     pacMan.style.transform = 'rotate(-90deg)';
-    pacMan.style.top = parseInt(pacMan.style.top) - 3 + 'px'
-    animate = setTimeout(moveUp, 20);
+
+    let pacmanPosition = squares[`${startPosition.i}-${startPosition.j}`];
+    let nextElement = squares[`${startPosition.i-1}-${startPosition.j}`];
+    
+
+    if(nextElement.classList.value == 'pellet'){
+        nextElement.classList.remove('pellet');
+        nextElement.classList.add('pacman');
+        startPosition.i--
+        animate = setTimeout(moveUp, 150);
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.i -= 1;
+    } else if(nextElement.classList.value === 'pacman'){
+        nextElement.classList.remove('pacman');
+        startPosition.i--;
+        animate = setTimeout(moveUp, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+        pacmanPosition.empty();
+
+        startPosition.setInterval -= 1;
+        
+    } else if(nextElement.classList.value == 'powerpellet'){
+        nextElement.classList.remove('powerpellet');
+        startPosition.i--;
+        animate = setTimeout(moveUp, 150);
+        nextElement.classList.add('pacman');
+        nextElement.appendChild(document.getElementById('pac1'));
+
+        pacmanPosition.empty();
+
+        startPosition.j -= 1;
+    }
+    
 }
     
 
