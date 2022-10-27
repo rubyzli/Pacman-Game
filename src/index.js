@@ -177,7 +177,7 @@ function moveLeft(){
     } else if(nextElement.classList.value === 'pacman'){
         nextElement.classList.remove('pacman');
         startPosition.j--;
-        animate = setTimeout(moveUp, 150);
+        animate = setTimeout(moveLeft, 150);
         nextElement.classList.add('pacman');
         nextElement.appendChild(document.getElementById('pac1'));
         pacmanPosition.empty();
