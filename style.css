@@ -1,58 +1,92 @@
 body {
-    margin: 0;
-    background: purple;
+  margin: 0;
+  background: purple;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+#playbuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+#buttonLeft {
+  border-radius: 50%;
+  font-size: 24px;
+  color: aliceblue;
+  background-color: black;
+}
+#buttonRight {
+  border-radius: 50%;
+  font-size: 24px;
+  color: aliceblue;
+  background-color: black;
+}
+#buttonTOP {
+  border-radius: 50%;
+  font-size: 24px;
+  color: aliceblue;
+  background-color: black;
+}
+#buttonDown {
+  border-radius: 50%;
+  font-size: 24px;
+  color: aliceblue;
+  background-color: black;
+}
 #top {
-    display: flex;
-    flex-direction: row;
-    height: 200px;
+  display: flex;
+  flex-direction: row;
+  height: 200px;
 }
 
 #scoreboard {
-    width: 200px;
-    height: 100px;
-    background-color: black;
-    margin-left: 50px;
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: aliceblue;
+  width: 200px;
+  height: 100px;
+  background-color: black;
+  margin-left: 50px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #score {
-    color: white;
+  color: white;
 }
 
 #pacmanlogo {
-    width: 300px;
-    align-self: center;
-    justify-self: center;
-    margin-left: 360px;
+  width: 300px;
+  align-self: center;
+  justify-self: center;
+  margin-left: 360px;
 }
 
 #game {
-    position: relative;
-    width: 608px;
-    height: 672px;
-    margin: auto;
-    background-color: gray;
-    display: grid;
-    grid-template-columns: repeat(19, 32px);
-    grid-template-rows: repeat(21, 32px);
+  position: relative;
+  width: 608px;
+  height: 672px;
+  margin: auto;
+  background-color: gray;
+  display: grid;
+  grid-template-columns: repeat(19, 32px);
+  grid-template-rows: repeat(21, 32px);
 }
 
 .wall {
-    background: url(./assets/images/wall.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/wall.png);
+  width: 32px;
+  height: 32px;
 }
 
 /*.pacman {
@@ -62,48 +96,45 @@ main {
 }*/
 
 .pellet {
-    background: url(./assets/images/pellet/pellet_32px.png);
-    width: 32px;
-    height: 32px;  
-     
+  background: url(./assets/images/pellet/pellet_32px.png);
+  width: 32px;
+  height: 32px;
 }
 
 .powerpellet {
-    background: url(./assets/images/pellet/power-pellet.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/pellet/power-pellet.png);
+  width: 32px;
+  height: 32px;
 }
 
 .blinkyghost {
-    background: url(./assets/images/ghosts/ghost-blinky-down.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/ghosts/ghost-blinky-down.png);
+  width: 32px;
+  height: 32px;
 }
 
 .pinkyghost {
-    background: url(./assets/images/ghosts/ghost-pinky-down.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/ghosts/ghost-pinky-down.png);
+  width: 32px;
+  height: 32px;
 }
 
 .inkyghost {
-    background: url(./assets/images/ghosts/ghost-inky-down.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/ghosts/ghost-inky-down.png);
+  width: 32px;
+  height: 32px;
 }
 
 .clydeghost {
-    background: url(./assets/images/ghosts/ghost-clyde-down.png);
-    width: 32px;
-    height: 32px;
+  background: url(./assets/images/ghosts/ghost-clyde-down.png);
+  width: 32px;
+  height: 32px;
 }
 
-
-
 .entity {
-    /*
+  /*
      * Using absolute positioning, we can position our entities
      * within our game using the CSS properties `left` (x) and `top` (y).
      */
-    position: absolute;
+  position: absolute;
 }

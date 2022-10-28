@@ -7,20 +7,28 @@
         <script src="./src/index.js" defer></script>
     </head>
     <body>
+
         <div id="top">
             <div id="scoreboard">
-                <p id="score">Score:</p>
+                <h3 id="ScoreShow">Score: <span id="score"></span></h3>
             </div>
             <div id="pacmanlogo" >
-            <img src="./assets/images/Pacman-Logo-png-hd.png">
+                <img src="./assets/images/Pacman-Logo-png-hd.png">
             </div>
         </div>
         <main>
             <div id="game">
                 <div id="pacman" class="entity">
                     <img src="./assets/images/pacman_32px/pacman-3.png" id="pac1"/>
-                
-            </div>
-        </main>
+                    
+                </div>
+            </main>
+            <br>
+            <div id="playbuttons">
+            <button id="buttonLeft">LEFT</button>
+            <button id="buttonRight">RIGHT</button>
+            <button id="buttonTOP">TOP</button>
+            <button id="buttonDown">DOWN</button>
+        </div>
     </body>
 </html>

@@ -225,10 +225,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (score === 274) {
       ghosts.forEach((ghost) => clearInterval(ghost.timerId));
       document.removeEventListener("keyup", movePacman);
-      //   scoreDisplay.innerHTML = " YOU WON";
-      //   setTimeout(function () {
-      alert("YOU WON !");
-      //   }, 500);
+      scoreDisplay.innerHTML = " YOU WON";
+      setTimeout(function () {
+        alert("YOU WON !");
+      }, 500);
     }
   }
 });

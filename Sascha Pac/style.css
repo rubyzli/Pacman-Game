@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(104, 104, 212);
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -12,10 +16,10 @@
 }
 
 .pac-dot {
-  background-image: url(/assets/images/pellet/pellet.png);
+  background-image: url(/assets/images/pellet/pellet_32px.png);
   background-repeat: no-repeat;
-  width: 10px;
-  height: 10px;
+  /* width: 10px;
+  height: 10px; */
 }
 
 .wall {
@@ -60,8 +64,8 @@
 }
 
 .pac-man {
-  background-image: url(/assets/images/pacman/pacman-3.png);
+  background-image: url(/assets/images/pacman/pacman-2.png);
   background-repeat: no-repeat;
-  width: 10px;
-  height: 10px;
+  /* width: 10px;
+  height: 10px; */
 }
